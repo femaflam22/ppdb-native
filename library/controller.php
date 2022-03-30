@@ -68,13 +68,5 @@ class controller {
             echo "<script>alert('Gagal dihapus');document.location.href='$redirect'</script>";
         }
     }
-
-    function upload($foto, $folder)
-    {
-        $alamat = $foto['tmp_name'];
-        $namafile = $foto['name'];
-        move_uploaded_file($alamat, "$folder/$namafile");
-        return $namafile;
-    }
 }
 ?>

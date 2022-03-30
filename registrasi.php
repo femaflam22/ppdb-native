@@ -6,14 +6,9 @@ $controller = new controller();
 
 $table = 'registrasi';
 
-@$folder = "images";
-
 $redirect = "index.php";
 
 if (isset($_POST['submit'])) {
-    $image = $_FILES['foto'];
-    $upload = $controller->upload($image, $folder);
-    echo $upload;
     $field = array(
         'NamaLengkap' => $_POST['nama'],
         'JK' => $_POST['jk'],
@@ -21,7 +16,6 @@ if (isset($_POST['submit'])) {
         'Agama' => $_POST['agama'],
         'AsalSMP' => $_POST['asalSMP'],
         'Jurusan' => $_POST['jurusan'],
-        'Foto' => $upload,
     );
     $controller->add($con, $table, $field, $redirect);
 }
@@ -106,10 +100,6 @@ if (isset($_POST['submit'])) {
                     <option value="Tata Busana">Tata Busana</option>
                     <option value="Multimedia">Multimedia</option>
                 </select>
-            </div>
-            <div class="form-group mt-3">
-                <label for="foto" class="mb-2">Foto</label>
-                <input type="file" class="form-control" id="foto" name="foto">
             </div>
             <button type="submit" class="btn btn-primary mt-3" name="submit">Submit</button>
         </form>
